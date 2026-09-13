@@ -1,0 +1,22 @@
+:root {
+  --admin-bg: #0f0f19;
+  --admin-sidebar: #0b0b12;
+  --admin-surface: #171725;
+  --admin-surface-raised: #1f1f30;
+  --admin-surface-soft: #25253a;
+  --admin-border: rgba(255, 255, 255, .09);
+  --admin-border-strong: rgba(253, 184, 19, .34);
+  --admin-text: #ffffff;
+  --admin-muted: #b8b8c8;
+  --admin-muted-dim: #9696aa;
+  --admin-accent: #fdb813;
+  --admin-accent-strong: #ff9500;
+  --admin-success: #4bd39d;
+  --admin-warning: #ffb347;
+  --admin-danger: #ff6572;
+  --admin-info: #7ca7ff;
+  --admin-sidebar-width: 252px;
+  --admin-sidebar-collapsed-width: 76px;
+  --admin-header-height: 72px;
+  --admin-radius: 16px;
+}
