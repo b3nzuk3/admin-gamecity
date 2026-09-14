@@ -10,6 +10,7 @@ const titles: Array<{ match: string; title: string }> = [
   { match: '/products', title: 'Products' },
   { match: '/orders/', title: 'Order' },
   { match: '/orders', title: 'Orders' },
+  { match: '/users', title: 'Users' },
   { match: '/customers', title: 'Customers' },
   { match: '/inventory', title: 'Inventory' },
   { match: '/categories', title: 'Categories' },

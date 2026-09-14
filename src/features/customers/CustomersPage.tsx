@@ -1,1 +1,1 @@
-export { CapabilityPendingPage as CustomersPage } from '@/features/CapabilityPendingPage'
+export { UsersPage as CustomersPage } from '@/features/users/UsersPage'

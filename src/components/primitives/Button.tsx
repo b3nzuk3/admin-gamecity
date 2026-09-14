@@ -1,3 +1,4 @@
+import { forwardRef } from 'react'
 import type { ButtonHTMLAttributes, ReactNode } from 'react'
 
 type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'danger' | 'icon'
@@ -10,20 +11,21 @@ export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   fullWidth?: boolean
 }
 
-export function Button({
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button({
   children,
   variant = 'secondary',
   size = 'md',
   fullWidth = false,
   className = '',
   ...props
-}: ButtonProps) {
+}, ref) {
   return (
     <button
+      ref={ref}
       className={`admin-button admin-button-${variant} admin-button-${size}${fullWidth ? ' admin-button-full' : ''} ${className}`}
       {...props}
     >
       {children}
     </button>
   )
-}
+})

@@ -13,10 +13,10 @@ export const navSections: NavSection[] = [
   ] },
   { label: 'Sales', items: [
     { label: 'Orders', path: '/orders', icon: ShoppingCart, enabled: true },
-    { label: 'Customers', path: '/customers', icon: Users, enabled: true },
+    { label: 'Users', path: '/users', icon: Users, enabled: true },
   ] },
   { label: 'Content', items: [
-    { label: 'Homepage', path: '/homepage', icon: LayoutTemplate },
+    { label: 'Homepage', path: '/homepage', icon: LayoutTemplate, enabled: true },
     { label: 'Media', path: '/media', icon: Image },
   ] },
   { label: 'System', items: [{ label: 'Settings', path: '/settings', icon: Settings }] },

@@ -29,6 +29,7 @@ test('the app exposes the approved admin route inventory', async () => {
     'orders',
     'orders/:orderId',
     'customers',
+    'users',
     'inventory',
     'categories',
     'homepage',
