@@ -85,3 +85,16 @@ test('phase 2 auth boundary is explicit and token access is centralized', async 
   assert.doesNotMatch(types, /featured|sku|publicationStatus/i)
   assert.doesNotMatch(`${provider}\n${client}\n${guards}`, /localStorage\.(getItem|setItem|removeItem)/)
 })
+
+test('product image manager supports explicit repair actions', async () => {
+  const manager = await read('src/features/products/ProductImageManager.tsx')
+
+  assert.match(manager, /Replace primary image/)
+  assert.match(manager, /replacePrimary/)
+  assert.match(manager, /Replace gallery image/)
+  assert.match(manager, /replaceGallery/)
+  assert.match(manager, /Image missing from storage/)
+  assert.match(manager, /onError=/)
+  assert.match(manager, /imageR2Variants:/)
+  assert.match(manager, /uploadedKeys:/)
+})

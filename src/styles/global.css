@@ -289,13 +289,18 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .admin-image-upload-row .admin-input-label { display: block; }
 .admin-primary-image-card { display: flex; align-items: center; gap: 15px; padding: 12px; border: 1px solid rgba(253, 184, 19, .25); border-radius: 11px; background: rgba(253, 184, 19, .06); }
 .admin-primary-image-card img { width: 96px; height: 96px; object-fit: cover; border-radius: 8px; background: #11111b; }
-.admin-primary-image-card > div { flex: 1; }
+.admin-primary-image-card > div:not(.admin-primary-image-actions) { flex: 1; }
+.admin-primary-image-actions { display: flex; align-items: center; gap: 7px; }
 .admin-image-label { display: inline-flex; align-items: center; gap: 6px; color: #ffe19a; font-size: 13px; font-weight: 800; }
+.admin-image-missing { border-color: rgba(239, 68, 68, .55); background: rgba(127, 29, 29, .16); }
+.admin-image-missing img { opacity: .18; }
+.admin-image-missing-label { display: inline-flex; align-items: center; gap: 6px; color: #fca5a5; font-size: 13px; font-weight: 800; }
 .admin-primary-image-card p { margin: 5px 0 0; color: var(--admin-muted-dim); font-size: 12px; }
 .admin-image-empty { display: flex; min-height: 110px; align-items: center; justify-content: center; gap: 9px; border: 1px dashed var(--admin-border); border-radius: 11px; color: var(--admin-muted-dim); font-size: 13px; }
 .admin-gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 12px; }
 .admin-gallery-item { position: relative; overflow: hidden; aspect-ratio: 1; border: 1px solid var(--admin-border); border-radius: 9px; background: #11111b; }
 .admin-gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+.admin-gallery-missing-label { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; gap: 5px; padding: 10px; color: #fecaca; font-size: 12px; font-weight: 800; text-align: center; }
 .admin-gallery-actions { position: absolute; right: 5px; bottom: 5px; left: 5px; display: flex; justify-content: flex-end; gap: 3px; }
 .admin-gallery-actions .admin-button { min-height: 28px; width: 28px; padding: 0; border: 1px solid rgba(0, 0, 0, .3); background: rgba(11, 11, 18, .82); }
 .admin-upload-progress { display: flex; align-items: center; gap: 8px; color: var(--admin-accent); font-size: 12px; }
@@ -389,6 +394,11 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   .admin-form-full { grid-column: auto; }
   .admin-image-upload-row { align-items: stretch; flex-direction: column; }
   .admin-image-upload-row .admin-button { width: 100%; }
+  .admin-primary-image-card { align-items: flex-start; flex-wrap: wrap; }
+  .admin-primary-image-card > div:not(.admin-primary-image-actions) { min-width: 150px; }
+  .admin-primary-image-actions { width: 100%; }
+  .admin-primary-image-actions .admin-button:first-child { flex: 1; }
+  .admin-image-empty { flex-direction: column; padding: 18px; text-align: center; }
   .admin-form-actions { align-items: stretch; flex-wrap: wrap; }
   .admin-form-actions .admin-button { flex: 1; }
   .admin-dirty-note { order: 3; width: 100%; margin: 0; }
