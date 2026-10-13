@@ -27,8 +27,14 @@ npm run dev
 - Backend CORS explicitly includes the future admin origin and existing storefront/local origins; wildcard access is not used.
 - Production backend startup fails when `JWT_SECRET` is missing or shorter than 32 characters.
 - The existing storefront, backend public contracts, `/admin` route, catalogue URLs, and deployment remain in place.
-- Product, order, customer mutation, inventory mutation, category, homepage, media-library, settings persistence, DNS, and legacy `/admin` decommissioning remain out of scope.
+- Product, order, customer mutation, inventory mutation, category, media-library, settings persistence, DNS, and legacy `/admin` decommissioning remain out of scope.
 - The admin origin remains non-indexable through HTML metadata, `robots.txt`, and deployment headers.
+
+## Homepage announcement bar
+
+The Homepage screen includes an authenticated announcement-bar editor backed by the real homepage API. With `VITE_API_BASE_URL` set to the backend API root (including `/api`), it reads the current value from `GET /admin/homepage` and saves changes with the admin-only `PUT /admin/homepage/announcement` endpoint.
+
+The editor supports the enabled state, desktop announcement text (required, up to 240 characters), optional mobile text (up to 120 characters), and an optional CTA label and local/HTTP(S) destination. Leaving both CTA fields empty removes the CTA; an empty mobile text uses the desktop text on the storefront. New homepage configurations use `Gaming PCs, components & accessories • Delivery across Kenya` for desktop text, `Delivery across Kenya` for mobile text, and `Shop now` linking to `/category/all`. The backend response returns the full homepage configuration, which the admin query updates after a successful save.
 
 ## Checks
 

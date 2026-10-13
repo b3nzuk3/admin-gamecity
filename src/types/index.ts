@@ -240,6 +240,14 @@ export type HomepageHero = {
   enabled: boolean
 }
 
+export type HomepageAnnouncement = {
+  enabled: boolean
+  text: string
+  mobileText: string
+  linkLabel: string
+  linkHref: string
+}
+
 export type HomepageProductReference = {
   productId: string
   sortOrder: number
@@ -264,11 +272,13 @@ export type HomepageSection = {
 
 export type HomepageResponse = {
   configured: boolean
+  announcement: HomepageAnnouncement
   hero: HomepageHero
   sections: HomepageSection[]
 }
 
 export type HomepageHeroPayload = Partial<HomepageHero>
+export type HomepageAnnouncementPayload = Partial<HomepageAnnouncement>
 export type HomepageSectionPayload = {
   title: string
   subtitle?: string

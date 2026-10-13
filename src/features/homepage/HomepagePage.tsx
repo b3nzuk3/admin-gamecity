@@ -13,6 +13,7 @@ import { Toast, ToastRegion } from '@/components/feedback/Toast'
 import { homepageApi } from '@/services/api'
 import { homepageKeys } from '@/lib/queryKeys'
 import type { HomepageSection, HomepageSectionLayout } from '@/types'
+import { AnnouncementEditor } from './AnnouncementEditor'
 import { HeroEditor } from './HeroEditor'
 import { HomepageLayoutPicker } from './HomepageLayoutPicker'
 import { HomepageSectionCard, type SectionPatch } from './HomepageSectionCard'
@@ -82,7 +83,8 @@ export function HomepagePage() {
 
   return <>
     <PageHeader eyebrow="Content" title="Homepage" description="Manage the storefront hero and curated product collections without changing the catalogue." action={{ label: 'Add section', onClick: () => setCreateOpen(true) }} />
-    {!homepage.data.configured && <div className="admin-system-banner"><Info size={17} /><span><strong>Starter configuration.</strong> The storefront is using its safe catalogue fallback until you save a homepage section or hero setting.</span></div>}
+    {!homepage.data.configured && <div className="admin-system-banner"><Info size={17} /><span><strong>Starter configuration.</strong> The storefront is using its safe catalogue fallback until you save an announcement, homepage section, or hero setting.</span></div>}
+    <AnnouncementEditor announcement={homepage.data.announcement} />
     <HeroEditor hero={homepage.data.hero} />
     <div className="admin-homepage-sections-heading"><div><div className="admin-page-eyebrow">Merchandising</div><h2>Homepage sections</h2><p>Arrange curated collections using products that already exist in the catalogue.</p></div><Button type="button" variant="primary" onClick={() => setCreateOpen(true)}><Plus size={16} /> Add section</Button></div>
     <div className="admin-homepage-sections">{sections.length === 0 ? <Card><CardContent><div className="admin-state admin-homepage-empty-state"><h3>No homepage sections yet</h3><p>Create a section, then select products from the live catalogue. Removing a reference never removes its product.</p><Button type="button" variant="primary" onClick={() => setCreateOpen(true)}><Plus size={16} /> Create first section</Button></div></CardContent></Card> : sections.map((section, index) => <HomepageSectionCard key={section.id} section={section} index={index} count={sections.length} busy={busy} onProducts={() => setPickerSectionId(section.id)} onDelete={() => setDeleteTarget(section)} onReorder={(direction) => moveSection(index, direction)} onProductReorder={(productIds) => updateProducts.mutate({ id: section.id, productIds })} onEdit={(patch) => updateSection.mutate({ id: section.id, patch })} />)}</div>

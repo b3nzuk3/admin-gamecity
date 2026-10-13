@@ -45,7 +45,7 @@ async function request<T>(path: string, options: RequestOptions = {}): Promise<T
   const headers = new Headers(providedHeaders)
   const token = tokenStorage.getToken()
 
-  if (token && !isAuthRequest(path)) headers.set('Authorization', `Bearer ${token}`)
+  if (token && path !== '/admin/auth/login') headers.set('Authorization', `Bearer ${token}`)
   if (!(body instanceof FormData) && body !== undefined && body !== null) {
     headers.set('Content-Type', 'application/json')
   }
